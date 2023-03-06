@@ -6,6 +6,8 @@ import (
 	b "pattern/bridge-pattern"
 	"pattern/factory-method"
 	counter "pattern/singleton"
+
+	a "pattern/adapter"
 )
 
 func main() {
@@ -53,6 +55,19 @@ func main() {
 	winComputer.SetPrinter(epsonPrinter)
 	winComputer.Print()
 	fmt.Println()
+
+	//adapter
+	client := &a.Client{}
+	mac := &a.MacMachine{}
+
+	client.InsertLightningConnectorIntoComputer(mac)
+
+	windowMachine := &a.Window{}
+	windowAdapter := &a.WindowAdapter{
+		WindowMachine: windowMachine,
+	}
+
+	client.InsertLightningConnectorIntoComputer(windowAdapter)
 
 }
 
