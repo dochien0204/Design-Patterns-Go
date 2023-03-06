@@ -2,6 +2,7 @@ package computer
 
 import "fmt"
 
+// Abstraction
 type MacComputer struct {
 	printer Printer
 }

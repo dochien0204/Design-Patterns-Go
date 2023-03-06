@@ -2,6 +2,7 @@ package computer
 
 import "fmt"
 
+// Concrete Implementations
 type HpPrinter struct {
 }
 

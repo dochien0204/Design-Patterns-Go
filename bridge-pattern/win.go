@@ -2,6 +2,7 @@ package computer
 
 import "fmt"
 
+// Abstraction
 type WinComputer struct {
 	printer Printer
 }
