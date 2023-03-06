@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	v "pattern/abstract-factory"
+	b "pattern/bridge-pattern"
 	"pattern/factory-method"
 	counter "pattern/singleton"
 )
@@ -35,6 +36,23 @@ func main() {
 	sportMotorbike, _ := motorbikeFactory.GetVehicle(v.SportMotorbikeType)
 	fmt.Println("Sport Motorbike")
 	PrintDetail(sportMotorbike)
+
+	//bridge pattern
+	fmt.Println()
+	fmt.Println("Bridge Pattern")
+	hpPrinter := new(b.HpPrinter)
+	epsonPrinter := new(b.EpsonPrinter)
+
+	macComputer := new(b.MacComputer)
+	winComputer := new(b.WinComputer)
+
+	macComputer.SetPrinter(hpPrinter)
+	macComputer.Print()
+	fmt.Println()
+
+	winComputer.SetPrinter(epsonPrinter)
+	winComputer.Print()
+	fmt.Println()
 
 }
 
