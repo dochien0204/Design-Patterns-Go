@@ -8,6 +8,7 @@ import (
 	counter "pattern/singleton"
 
 	a "pattern/adapter"
+	d "pattern/decorator"
 )
 
 func main() {
@@ -68,6 +69,21 @@ func main() {
 	}
 
 	client.InsertLightningConnectorIntoComputer(windowAdapter)
+
+	//Decorator
+	fmt.Println()
+	fmt.Println("Decorator Patter")
+	veggieMania := &d.VeggieMania{}
+
+	veggieManiaWithCheese := &d.CheeseTopping{
+		Pizza: veggieMania,
+	}
+
+	veggieManiaWithCheeseAndTomato := &d.CheeseTopping{
+		Pizza: veggieManiaWithCheese,
+	}
+
+	fmt.Println("Veggie Mania pizza with cheese and totmato topping has price:", veggieManiaWithCheeseAndTomato.GetPrice())
 
 }
 
